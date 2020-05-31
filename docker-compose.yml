@@ -1,0 +1,46 @@
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+version: "3.1"
+services:
+
+    mysql:
+      image: mysql:5.7
+      container_name: launch-cart-mysql
+      working_dir: /application
+      volumes:
+        - .:/application
+      environment:
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_DATABASE=launch-cart
+        - MYSQL_USER=launch-cart
+        - MYSQL_PASSWORD=launch-cart
+      ports:
+        - "8090:3306"
+
+    webserver:
+      image: nginx:alpine
+      container_name: launch-cart-webserver
+      working_dir: /application
+      volumes:
+          - .:/application
+          - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      ports:
+       - "8088:80"
+
+    node:
+      image: node:10
+      container_name: launch-cart-node
+      working_dir: /application
+      volumes:
+        - .:/application
+      entrypoint: sleep 999999999
+
+    php-fpm:
+      build: phpdocker/php-fpm
+      container_name: launch-cart-php-fpm
+      working_dir: /application
+      volumes:
+        - .:/application
+        - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
+
