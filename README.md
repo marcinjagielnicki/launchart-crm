@@ -3,6 +3,7 @@
 ##Installation
 
 ###Laravel valet:
+
 * Link page via valet link command
 * `composer install`
 * `cp .env.example .env`
@@ -15,10 +16,12 @@
 
 
 ###Docker compose
+
 * Make sure that you have latest docker and docker-compose
 * Run `make warmup-project`
 * Open in your browser: `http://localhost:8088/'
 
 
 ##Usage
+
 Create account via Register link. Feel free to add contacts that you need :) 
