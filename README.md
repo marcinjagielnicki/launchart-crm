@@ -1,8 +1,8 @@
-#LaunchCart contacts management panel
+# LaunchCart contacts management panel
 
-##Installation
+## Installation
 
-###Laravel valet:
+### Laravel valet:
 
 * Link page via valet link command
 * `composer install`
@@ -15,13 +15,11 @@
 * Open site (hint: you can run `valet open`)
 
 
-###Docker compose
-
+### Docker compose
 * Make sure that you have latest docker and docker-compose
 * Run `make warmup-project`
 * Open in your browser: `http://localhost:8088/'
 
 
-##Usage
-
+## Usage
 Create account via Register link. Feel free to add contacts that you need :) 
